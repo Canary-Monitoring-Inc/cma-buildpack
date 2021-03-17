@@ -4,3 +4,4 @@ cat <<EOF
 ---
 default_process_types:
   worker: vendor/cma/run.sh
+EOF
