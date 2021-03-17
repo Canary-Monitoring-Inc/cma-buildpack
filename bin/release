@@ -3,4 +3,4 @@
 cat <<EOF
 ---
 default_process_types:
-  worker: vendor/cma/Canary.Shared.Monitoring.Agent
+  worker: vendor/cma/run.sh
