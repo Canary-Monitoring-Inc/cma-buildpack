@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cat <<EOF
+---
+default_process_types:
+  worker: vendor/cma/Canary.Shared.Monitoring.Agent

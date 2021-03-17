@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+#  Canary Monitoring Agent "compile" script. This fetches the latest binary from
+#  Canary's public assets S3 bucket and drops it in a well-known location
+#
+
+distribution_prefix=https://canary-public-assets.s3-us-west-2.amazonaws.com/dist/canary_monitoring_agent
+
+cd $1
+mkdir -p vendor/cma; cd vendor/cma
+curl -sO $distribution_prefix/latest.txt
+tar=$(cat latest.txt)
+echo "-----> Installing Canary Monitoring Agent from `cat latest.txt`"
+curl -sO $distribution_prefix/$tar
+tar xf $tar
+rm $tar
