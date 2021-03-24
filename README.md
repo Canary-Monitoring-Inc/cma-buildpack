@@ -2,8 +2,9 @@
 
 This repository contains a Heroku Buildpack for the Canary Monitoring Agent.
 
-For an example on how to use this, see https://github.com/Canary-Monitoring-Inc/cma-buildpack-example.
+To add this buildpack, execute
 
-In order to send telemetry data from your other dynos using the Canary Monitoring In-Process Agents,
-please make sure to enable DNS in your space, see https://devcenter.heroku.com/articles/dyno-dns-service-discovery,
-then configure the in-process agents to point at the dyno you deployed the monitoring agent on.
+    heroku buildpacks:add --index 1 https://github.com/Canary-Monitoring-Inc/cma-buildpack
+    heroku heroku config:add CANARY_API_TOKEN=<CANARY_API_KEY>
+
+Any Canary In-Process Agents will now have their telemetry collected and sent off to the Canary backend.
