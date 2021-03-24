@@ -1,7 +1,2 @@
 #!/bin/sh
-
-cat <<EOF
----
-default_process_types:
-  cma: vendor/cma/run.sh
-EOF
+# <empty on purpose>
