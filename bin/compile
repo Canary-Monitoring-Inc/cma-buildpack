@@ -41,7 +41,9 @@ EOF
 env_dir=$3
 if [ -d "$env_dir" ]; then
     for e in $(ls $env_dir); do
-        echo export "$e=$(cat $env_dir/$e)" >>run-cma.sh
+        echo export "$e=\`cat <<EOF
+$(cat $env_dir/$e)
+EOF\'" >>run-cma.sh
     done
 fi
 cat >>run-cma.sh <<'EOF'
