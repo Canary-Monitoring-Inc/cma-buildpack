@@ -15,8 +15,8 @@ cd $1
 
 (mkdir -p vendor/cma; cd vendor/cma
 curl -sO $distribution_prefix/latest.txt
-tar=$(cat latest.txt)
-echo "-----> Installing Canary Monitoring Agent from `cat latest.txt`"
+tar=canary-monitoring-agent-$(cat latest.txt)-amd64.tar.bz2
+echo "-----> Installing Canary Monitoring Agent from version `cat latest.txt`"
 curl -sO $distribution_prefix/$tar
 tar xf $tar
 rm $tar)
