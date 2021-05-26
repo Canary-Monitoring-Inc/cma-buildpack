@@ -41,9 +41,16 @@ EOF
 env_dir=$3
 if [ -d "$env_dir" ]; then
     for e in $(ls $env_dir); do
-        echo export "$e=\`cat <<EOF
+        case "$e" in
+            CANARY_*)
+                echo "Pulling in env var $e.."
+                echo export "$e=\`cat <<EOF
 $(cat $env_dir/$e)
 EOF\`" >>run-cma.sh
+                ;;
+            *)
+                ;;
+        esac
     done
 fi
 cat >>run-cma.sh <<'EOF'
